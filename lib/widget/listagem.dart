@@ -21,10 +21,11 @@ class ListagemEstado extends State<Listagem> {
   }
 
   // state definido para atualizar a lista de contatos
-  void atualizarLista() {
+  void atualizarLista() async {
     try {
+      List<Contato> contatos = await _repository.listarContatos();
       setState(() {
-        _contatos = _repository.listarContatos();
+        _contatos = contatos;
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(

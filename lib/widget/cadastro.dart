@@ -154,7 +154,13 @@ class CadastroEstado extends State<Cadastro> {
                       widget.contato!.nome = nomeInformado;
                       widget.contato!.telefone = telefoneInformado;
                       widget.contato!.email = emailInformado;
-                      print('Contato atualizado com sucesso!');
+                      try {
+                        widget.repository.atualizar(widget.contato!);
+                        print('Contato atualizado com sucesso!');
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: const Text("Erro ao atualizar contato.")));
+                      }
                     }
                     Navigator.pop(context);
                   }
