@@ -16,6 +16,8 @@ AgendaApp é um aplicativo de gerenciamento de contatos desenvolvido com Flutter
     - **contato.dart**: Define a estrutura do modelo de dados `Contato`.
   - `repository/`
     - **contato_repository.dart**: Implementa a lógica para listar, adicionar e remover contatos.
+  - `database/`
+    - **appdatabase.dart**: Implementa a lógica para buildar o banco de dados.
   - `widget/`
     - **listagem.dart**: Tela principal para exibição dos contatos cadastrados.
     - **cadastro.dart**: Tela de cadastro/edição de contatos.
