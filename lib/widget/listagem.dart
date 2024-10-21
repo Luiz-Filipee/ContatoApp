@@ -1,5 +1,7 @@
+import 'package:agendaapp/controller/loginController.dart';
 import 'package:agendaapp/model/contato.dart';
 import 'package:agendaapp/repository/contato_repository.dart';
+import 'package:agendaapp/repository/usuario_respository.dart';
 import 'package:agendaapp/widget/cadastro.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,7 @@ class Listagem extends StatefulWidget {
 class ListagemEstado extends State<Listagem> {
   ContatoRepository _repository = ContatoRepository();
   List<Contato> _contatos = [];
+  final LoginController _controller = LoginController(UsuarioRepository());
 
   @override
   void initState() {
@@ -41,6 +44,15 @@ class ListagemEstado extends State<Listagem> {
             style: TextStyle(
                 fontFamily: 'Montserrat', fontSize: 24, color: Colors.white)),
         backgroundColor: Colors.blue[900],
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+              onPressed: () => _controller.logout(context),
+              icon: Icon(
+                Icons.logout,
+                color: Colors.white,
+              )),
+        ],
       ),
       body: _contatos
               .isEmpty // se tiver algum contato, exibi-o na tela, se nao exibe a mensagem "Nenhum contato cadastrado"

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Contato {
   int? id;
   String? nome;
