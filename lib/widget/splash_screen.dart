@@ -1,4 +1,4 @@
-import 'package:agendaapp/autenticacao/sharedSessao.dart';
+import 'package:agendaapp/autenticacao/secureStorage.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -6,7 +6,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     _verificaLogin() async {
-      bool isLogado = await SharedSessao.estaLogado();
+      bool isLogado = await SecureStorage.estaLogado();
       if (isLogado) {
         Navigator.pushReplacementNamed(context, '/listagem');
       } else {

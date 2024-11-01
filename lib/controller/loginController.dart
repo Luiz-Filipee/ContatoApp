@@ -1,3 +1,4 @@
+import 'package:agendaapp/autenticacao/secureStorage.dart';
 import 'package:agendaapp/autenticacao/sharedSessao.dart';
 import 'package:agendaapp/model/usuario.dart';
 import 'package:agendaapp/repository/usuario_respository.dart';
@@ -13,8 +14,12 @@ class LoginController {
     Usuario? usuarioAutenticado = await _repository.fazerLogin(username, senha);
 
     if (usuarioAutenticado != null) {
-      String token = 'auth_token';
-      await SharedSessao.salvarToken(token);
+      final payload = {
+        'id': usuarioAutenticado.id,
+        'name': usuarioAutenticado.nome,
+        'password': usuarioAutenticado.senha
+      };
+      await SecureStorage.salvarToken(payload); // salva o token JWT
       Navigator.pushReplacementNamed(
           context, '/listagem'); // Redireciona para a tela de listagem
     } else {

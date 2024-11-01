@@ -39,6 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   sqflite: ^2.3.2
   shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.2.2
+  dart_jsonwebtoken: ^2.14.1
 
 dev_dependencies:
   flutter_test:
